@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<data-th-block th:include="inc/head :: head" class="add_weight_wrapper_block"></data-th-block>
+<body>
+<a href="/login">login</a>
+<div class="g_weight_block">
+    <div data-th-if="${!empty}" data-th-each="cx : ${chartX}" class="infoWrapper" data-th-id="${cx['info']}">
+        <table class="dataTable">
+            <tr>
+                <td>Дата</td>
+                <td>[[${cx['date']}]]</td>
+            </tr>
+            <tr>
+                <td>Вес</td>
+                <td>>>> [[${cx['weight']}]] <<<</td>
+            </tr>
+            <tr>
+                <td>Цель:</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><span class="infoWeightPaddingLeft">При текущем среднем прогрессе (<span data-th-style="|color:${cx['progressPerDayColor']}|">[[${cx['avgProgressPerDay']}]]</span>)</span></td>
+                <td>[[${cx['goalWithCurrentProgress']}]]</td>
+            </tr>
+            <tr>
+                <td><span class="infoWeightPaddingLeft">При среднем прогрессе за 3 дня (<span data-th-style="|color:${cx['avg3DaysProgressColor']}|">[[${cx['avg3DaysProgress']}]]</span>)</span></td>
+                <td>[[${cx['goalWithCurrent3DaysProgress']}]]</td>
+            </tr>
+            <tr>
+                <td><span class="infoWeightPaddingLeft">При среднем прогрессе за неделю (<span data-th-style="|color:${cx['avgWeekProgressColor']}|">[[${cx['avgWeekProgress']}]]</span>)</span></td>
+                <td>[[${cx['goalWithCurrentWeekProgress']}]]</td>
+            </tr>
+            <tr>
+                <td><span class="infoWeightPaddingLeft">При среднем прогрессе за месяц (<span data-th-style="|color:${cx['avgMonthProgressColor']}|">[[${cx['avgMonthProgress']}]]</span>)</span></td>
+                <td>[[${cx['goalWithCurrentMonthProgress']}]]</td>
+            </tr>
+        </table>
+        <table class="dataTable">
+            <tr>
+                <td>Прогресс</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><span class="infoWeightPaddingLeft">День</span></td>
+                <td data-th-style="|color:${cx['oneDayProgressColor']}|">[[${cx['progressDay']}]]</td>
+            </tr>
+            <tr>
+                <td><span class="infoWeightPaddingLeft">3 дня</span></td>
+                <td data-th-style="|color:${cx['progress3DaysColor']}|">[[${cx['progress3Days']}]]</td>
+            </tr>
+            <tr>
+                <td><span class="infoWeightPaddingLeft">Неделя</span></td>
+                <td data-th-style="|color:${cx['progressWeekColor']}|">[[${cx['progressWeek']}]]</td>
+            </tr>
+            <tr>
+                <td><span class="infoWeightPaddingLeft">2 недели</span></td>
+                <td data-th-style="|color:${cx['progress2WeeksColor']}|">[[${cx['progress2Weeks']}]]</td>
+            </tr>
+            <tr>
+                <td><span class="infoWeightPaddingLeft">Месяц</span></td>
+                <td data-th-style="|color:${cx['progressMonthColor']}|">[[${cx['progressMonth']}]]</td>
+            </tr>
+            <tr>
+                <td><span class="infoWeightPaddingLeft">Общий</span></td>
+                <td data-th-style="|color:${cx['commonProgressColor']}|">[[${cx['commonProgress']}]]</td>
+            </tr>
+        </table>
+<!--        <div>Дата: [[${cx['date']}]]</div>-->
+<!--        <div>Вес: [[${cx['weight']}]]</div>-->
+<!--        <div>ЦТСП: [[${cx['goalWithCurrentProgress']}]]</div>-->
+<!--        <div>СПД: [[${cx['avgProgressPerDay']}]]</div>-->
+<!--        <div>ПД: [[${cx['progressDay']}]]</div>-->
+<!--        <div>ОП: [[${cx['commonProgress']}]]</div>-->
+    </div>
+    <div data-th-if="${!empty}" class="g_frame">
+        <div class="chart_wrapper">
+            <div data-th-each="cx : ${chartX}"
+                 data-th-margin="${cx['margin']}"
+                 data-th-style="|border:1px solid black;width:${cx['width']}px; height:${cx['height']}px; background:${cx['background']}; left:${cx['left']}px;|"
+                 data-th-class="|chart_column ${cx['col']} ${cx['chart_class']}|">
+                <div class="column_in_chart_column" data-th-id="${cx['col']}">
+                </div>
+                <span class="column_chart_date_span" data-th-text="${cx['date']}"></span>
+            </div>
+        </div>
+        <div class="yAxis">
+            <div data-th-each="c : ${chartY}">
+                <div data-th="${c.keySet()}"></div>
+                <div data-th-each="entry : ${c}">
+                    <div class="chart_data" data-th-style="|bottom:${entry.key}px|" data-th-text="${entry.value}"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="xAxis"></div>
+        <!--        <div class="scale_frame"></div>-->
+    </div>
+    <div data-th-if="${empty}" class="chart_wrapper">
+        <div>
+            Нет данных для отображения
+        </div>
+    </div>
+</div>
+<span data-th-text="${user.getId}"></span>
+<span data-th-text="${user.username}"></span>
+
+<data-th-block th:include="inc/add_weight_block :: add_weight" class="add_weight_wrapper_block"></data-th-block>
+
+<div class="add_weight">+</div>
+<!--<div data-th-each="weight : ${weight}">-->
+<!--    <div data-th-text="${weight.weight}"></div>-->
+<!--    <div data-th-text="${weight.date}"></div>-->
+<!--</div>-->
+<!--<div data-th-each="c : ${chartY}">-->
+<!--    <div data-th-text="${c}"></div>-->
+<!--</div>-->
+</body>
+</html>

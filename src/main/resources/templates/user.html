@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My page</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<span data-th-if="${!role.contains('ROLE_ADMIN')}">Доступ запрещен!</span>
+<div data-th-if="${role.contains('ROLE_ADMIN')}">
+    <span>[[${user.getName}]], hola!</span>
+    <span data-th-each="r : ${role}">
+        <span data-th-text="${r}"></span>
+    </span>
+    <div data-th-text="${user.getFullYears()}"></div>
+</div>
+
+</body>
+</html>

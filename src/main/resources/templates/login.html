@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<data-th-block th:include="inc/head :: head" class="add_weight_wrapper_block"></data-th-block>
+<body>
+<form class="loginFormWrapper" onsubmit="loginForm(event)">
+  <div class="err_msg"></div>
+  <div class="login_div">PLEASE SIGN IN</div>
+  <div class="input_div">
+    <span class="slide_out_text_login">Username</span>
+    <input type="text" name="username" id="username" placeholder="Username">
+
+  </div>
+  <div class="input_div">
+    <span class="slide_out_text_login">Пароль</span>
+    <input type="password" name="password" id="pass" placeholder="Пароль">
+  </div>
+  <div class="sbm_btn_wrapper">
+    <input type="submit" value="Войти" class="sbm_btn">
+    <div class="over_sbm_btn"></div>
+  </div>
+</form>
+</body>
+</html>

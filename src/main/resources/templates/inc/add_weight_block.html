@@ -1,0 +1,20 @@
+<div data-th-fragment="add_weight">
+  <img class="red_close" src="/images/red_close.png">
+  <form method="post" class="addWeightForm loginFormWrapper" onsubmit="addWeight(event)">
+    <div class="err_msg"></div>
+    <div class="login_div">Добавим вес?</div>
+    <div class="input_div">
+      <span class="slide_out_text_login">Вес</span>
+      <input class="weight_inp" type="text" name="weight" placeholder="Введите вес">
+
+    </div>
+    <div class="input_div">
+      <span class="slide_out_text_login">Дата</span>
+      <input type="date" name="weight_date" class="red_placeholder" placeholder="Оставьте поле пустым, если добавляете вес за сегодня">
+    </div>
+    <div class="sbm_btn_wrapper">
+      <input type="submit" value="Добавить" class="sbm_btn">
+      <div class="over_sbm_btn"></div>
+    </div>
+  </form>
+</div>

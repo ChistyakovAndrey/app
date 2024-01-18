@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<data-th-block th:include="inc/head :: head" class="add_weight_wrapper_block"></data-th-block>
+<body>
+<a href="/weight-app">weightApp</a>
+<div data-th-if="${principal==null}" class="mainPageWrapper">
+    <div class="enterButtonWrapper"><span class="textOnMain">Вход</span></div>
+    <div class="registerButtonWrapper"><span class="textOnMain">Регистрация</span></div>
+</div>
+</body>
+</html>

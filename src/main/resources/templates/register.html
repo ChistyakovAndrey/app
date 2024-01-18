@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link rel="stylesheet" href="css/reg.css">
+    <script type="text/javascript" src="js/toJson.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script src="https://kit.fontawesome.com/3412abb024.js" crossorigin="anonymous"></script>
+    <link href="https://allfont.ru/allfont.css?fonts=capture-it" rel="stylesheet" type="text/css" />
+    <link href="https://allfont.ru/allfont.css?fonts=roboto-condensed" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<form method="post" onsubmit="submitForm(event)" class="regFormWrapper" enctype="multipart/form-data">
+    <div class="err_msg"></div>
+    <div class="reg_div">Регистрация нового пользователя</div>
+    <div class="input_div">
+        <img class="question_icon" src="/images/question2.png" text="Имя пользователя должно содержать не менее 4 латинских символов и цифр">
+        <span class="slide_out_text_reg">Username</span>
+        <input class="usn_inp" type="text" name="username" id="username" placeholder="Username">
+
+    </div>
+    <div class="input_div">
+        <img class="question_icon" src="/images/question2.png" text="Имя должно состоять из букв. Длина имени от 2 до 20 символов без пробелов">
+        <span class="slide_out_text_reg">Имя</span>
+        <input class="name_inp" type="text" name="name" id="name" placeholder="Имя">
+    </div>
+
+    <span class="genderLetterRegPage" style="text-align:left; margin-right: 40px">Пол: </span>
+    <label for="m" class="genderLetterRegPage">Муж
+        <input type="radio" name="gender" value="m" id="m" checked class="radio_input">
+    </label>
+    <label for="f" class="genderLetterRegPage">Жен
+        <input type="radio" name="gender" value="f" id="f" class="radio_input"><br>
+    </label>
+
+    <div class="input_div">
+<!--        <img class="question_icon" src="/images/question2.png" text="Возраст должен быть положительным числом от 1 до 100">-->
+        <span class="slide_out_text_reg">Возраст</span>
+        <input class="age_inp" type="date" name="age" id="age" placeholder="Возраст">
+    </div>
+    <div class="input_div">
+        <img class="question_icon" src="/images/question2.png" text="Введите корректный адрес электронной почты">
+        <span class="slide_out_text_reg">Email</span>
+        <input class="mail_inp" type="text" name="email" id="email" placeholder="Email">
+    </div>
+    <div class="input_div">
+        <img class="question_icon" src="/images/question2.png" text="Пароль должен содержать не менее 4 символов. Разрешены латинские буквы, цифры, восклицательный, вопросительный знаки и знак подчеркивания">
+        <span class="slide_out_text_reg">Пароль</span>
+        <input class="pass_inp" type="password" name="password" id="pass" placeholder="Пароль">
+    </div>
+
+    <div class="sbm_btn_wrapper">
+        <input type="submit" value="Готово!" class="sbm_btn">
+        <div class="over_sbm_btn"></div>
+    </div>
+
+</form>
+</body>
+</html>
